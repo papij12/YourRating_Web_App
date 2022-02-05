@@ -20,15 +20,15 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public User get(Integer id) throws UserNotFoundExcption {
+    public User get(Integer id) throws UserNotFoundException {
         Optional<User> result = userRepository.findById(id);
         if (result.isPresent()){
             return result.get();
         }
-         throw new UserNotFoundExcption("Did not find any users with the ID" + id);
+         throw new UserNotFoundException("Did not find any users with the ID" + id);
     }
 
-    public void delete(Integer id) throws UserNotFoundExcption {
+    public void delete(Integer id) throws UserNotFoundException {
 
         userRepository.deleteById(id);
     }

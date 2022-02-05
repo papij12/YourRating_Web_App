@@ -22,7 +22,7 @@ class BistroRepositoryTest {
     }
 @Test
     public  void printAllBistro(){
-    List<Bistro> bistroList=bistroRepository.findAll();
+    List<Bistro> bistroList= (List<Bistro>) bistroRepository.findAll();
     System.out.println("Bistro list= " + bistroList);
 }
 

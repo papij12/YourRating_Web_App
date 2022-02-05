@@ -1,7 +1,7 @@
 package com.Task4.Task4.Controller;
 
 import com.Task4.Task4.Entity.User;
-import com.Task4.Task4.Service.UserNotFoundExcption;
+import com.Task4.Task4.Service.UserNotFoundException;
 import com.Task4.Task4.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -50,7 +50,7 @@ public class UserController {
             model.addAttribute("pageTitle","Edit User(ID:" + id +")");
             return "user_form";
 
-        } catch (UserNotFoundExcption e) {
+        } catch (UserNotFoundException e) {
             ok.addFlashAttribute("message", e.getMessage());
             return "redirect:/users";
         }
@@ -61,7 +61,7 @@ public class UserController {
         try {
             userService.delete(id);
             ok.addFlashAttribute("message","User with Id:"+id+ "was successfully deleted");
-        } catch (UserNotFoundExcption e) {
+        } catch (UserNotFoundException e) {
             ok.addFlashAttribute("message", e.getMessage());
         }
         return "redirect:/users";

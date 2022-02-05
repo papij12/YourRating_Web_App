@@ -23,7 +23,7 @@ restaurantsRepository.save(restaurants);
 }
 @Test
     public void printAllRestaurants(){
-    List<Restaurants>restaurantsList = restaurantsRepository.findAll();
+    List<Restaurants>restaurantsList = (List<Restaurants>) restaurantsRepository.findAll();
     System.out.println("RestaurantsList= "+restaurantsList);
 }
 }
