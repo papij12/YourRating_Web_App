@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserService {
+public class UserService  {
     @Autowired
     private UserRepository userRepository;
 
@@ -29,6 +29,7 @@ public class UserService {
     }
 
     public void delete(Integer id) throws UserNotFoundException {
+
 
         userRepository.deleteById(id);
     }
