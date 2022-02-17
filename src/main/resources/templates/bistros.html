@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <title>Your rating app</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Your rating </a>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="#">Home</a>
+            <a class="nav-item nav-link" th:href="@{/users}">User</a>
+            <a class="nav-item nav-link" th:href="@{/restaurants}">Restaurants</a>
+            <a class="nav-item nav-link" th:href="@{/bistros}">Bistros</a>
+            <a class="nav-item nav-link" th:href="@{/takeaways}">Takeaway</a>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid text-center">
+    <div><h2> list of Bistros </h2></div>
+<table class="table table-bordered">
+    <thead class="thead-dark">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Rating</th>
+        <th>User_ID</th>
+        <th> </th>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:each="bistro : ${listBistros}">
+        <tr>
+            <td>[[${bistro.bId}]]</td>
+            <td>[[${bistro.name}]]</td>
+            <td>[[${bistro.rating}]]</td>
+            <td>[[${bistro.userId}]]</td>
+            <td>
+                <a class="h4 " th:href="@{'/bistros/rank/' + ${bistro.bId}}">Rate</a>
+            </td>
+        </tr>
+    </th:block>
+    </tbody>
+</table>
+</div>
+</body>
+</html>
